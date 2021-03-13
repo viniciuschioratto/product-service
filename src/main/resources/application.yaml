@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: Product Service
+
+server:
+  port: 8080
+
+mongoDB:
+  url: localhost
+  port: 27017
+  dataBase: productService
+  collection: product
