@@ -2,7 +2,9 @@ package com.viniciuschioratto.ProductService.entity;
 
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.annotation.Version;
 
+import java.time.Instant;
 import java.util.Date;
 import java.util.UUID;
 
@@ -13,9 +15,11 @@ public class Product {
     private Float price;
     private String description;
     @CreatedDate
-    private Date dateInsert;
+    private Instant dateInsert;
     @LastModifiedDate
     private Date dateUpdate;
+    @Version
+    private String version;
 
     public UUID getId() {
         return id;
@@ -45,12 +49,20 @@ public class Product {
         this.description = description;
     }
 
-    public Date getDateInsert() {
+    public Instant getDateInsert() {
         return dateInsert;
     }
 
     public Date getDateUpdate() {
         return dateUpdate;
+    }
+
+    public String getVersion() {
+        return version;
+    }
+
+    public boolean isValid() {
+        return name != null;
     }
 
 }
